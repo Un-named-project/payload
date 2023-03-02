@@ -6,14 +6,14 @@ import time
 
 device = os.environ["COMPUTERNAME"]
 room = socket.gethostbyname(socket.gethostname())
-url = 'http://localhost:5000/add?name={}&room={}'.format(str(device), str(room))
+url = 'https://api.balstudent101.repl.co/add?name={}&room={}'.format(str(device), str(room))
 
 x = requests.post(url)
 
 print(x.text)
 
 def get_state(): 
-    request = requests.get('http://localhost:5000/ping')
+    request = requests.get('https://api.balstudent101.repl.co/ping')
     return request.text
     
 def threadFunc():
