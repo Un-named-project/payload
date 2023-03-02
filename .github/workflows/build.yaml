@@ -14,7 +14,7 @@ jobs:
       - name: Set up job
         run: pip install pyinstaller
       - name: Build
-        run: pyinstaller -F post.py
+        run: pyinstaller post.py
       - uses: actions/upload-artifact@v2
         with:
           path: dist/*
