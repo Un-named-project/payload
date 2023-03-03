@@ -3,6 +3,7 @@ import os
 import socket
 import threading
 import time
+import winsound
 
 device = os.environ["COMPUTERNAME"]
 room = socket.gethostbyname(socket.gethostname())
@@ -17,9 +18,10 @@ def get_state():
     return request.text
     
 def threadFunc():
-    resp = (get_state()).strip("{}")
+    resp = (get_state()).strip("{}[]")
     if resp == "true":
         print("Running")
+        winsound.PlaySound('ricky.wav', winsound.SND_FILENAME)
     # by only providing an if statement above, we stop the possibility of an unwanted accident
     print("attack? " + resp)
     time.sleep(1)
