@@ -18,8 +18,9 @@ def get_state():
     return request.text
     
 def threadFunc():
-    resp = (get_state()).strip("{}[]")
-    if resp == "true]":
+    resp = (get_state())
+    state = "true"
+    if state in resp:
         print("Running")
         winsound.PlaySound('ricky.wav', winsound.SND_FILENAME)
     # by only providing an if statement above, we stop the possibility of an unwanted accident
